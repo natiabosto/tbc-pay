@@ -26,7 +26,7 @@ const Wizard: React.FC = () => {
     hasErrors || currentStep === wizardContent.length - 1;
   const isPrevStepDisabled = currentStep === 0;
 
-  const handleNextStep = (data) => {
+  const handleNextStep = () => {
     methods.handleSubmit(onSubmit);
     setCurrentStep((step) => (isNextStepDisabled ? step : step + 1));
   };
@@ -34,11 +34,11 @@ const Wizard: React.FC = () => {
     setCurrentStep((step) => (isPrevStepDisabled ? step : step - 1));
   };
 
-  const onSubmit = (data) => {
+  const onSubmit = (data: unknown) => {
     if (isNextStepDisabled) {
       console.log('Form submitted successfully:', data);
     } else {
-      handleNextStep(data);
+      handleNextStep();
     }
   };
 

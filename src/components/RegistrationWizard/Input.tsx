@@ -26,7 +26,7 @@ const Input: React.FC<InputProps> = ({ id, label }) => {
       />
       {errors[id] && (
         <p className='text-red-500 text-xs'>
-          {(touchedFields[id] && (errors[id] as any))?.message}
+          {(touchedFields[id] && (errors[id] as unknown))?.message}
         </p>
       )}
     </div>
