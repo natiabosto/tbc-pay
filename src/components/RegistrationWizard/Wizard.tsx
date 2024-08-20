@@ -2,14 +2,14 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 import { WizardSchema } from '../../schemas/WizardSchema';
-import { EmailStep, PasswordStep, SuccessStep } from './steps';
-import Input from './steps/Input';
+import SuccessStep from './SuccessStep';
+import Input from './Input';
 import WizardController from './WizardController';
 
 const wizardContent = [
   <Input key='username' id='username' label='მომხმარებლის სახელი' />,
-  <PasswordStep key='password' />,
-  <EmailStep key='email' />,
+  <Input key='password' id='password' label='პაროლი' />,
+  <Input key='email' id='email' label='ელ.ფოსტა' />,
   <SuccessStep key='success' />,
 ];
 

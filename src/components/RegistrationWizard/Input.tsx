@@ -18,7 +18,7 @@ const Input: React.FC<InputProps> = ({ id, label }) => {
       </label>
       <input
         id={id}
-        type='text'
+        type={id === 'password' ? 'password' : 'text'}
         {...register(id)}
         className='mt-1 p-2 border border-gray-300 rounded'
         required={true}
