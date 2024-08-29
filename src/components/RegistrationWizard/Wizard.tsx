@@ -31,7 +31,11 @@ const Wizard: React.FC = () => {
     setCurrentStep((step) => (isNextStepDisabled ? step : step + 1));
   };
   const handlePrevStep = () => {
-    setCurrentStep((step) => (isPrevStepDisabled ? step : step - 1));
+    if (currentStep > 0) {
+      const fieldName = wizardContent[currentStep].props.id;
+      methods.unregister(fieldName);
+      setCurrentStep((step) => step - 1);
+    }
   };
 
   const onSubmit = (data: unknown) => {
